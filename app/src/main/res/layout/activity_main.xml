@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="60dp"
+    tools:context=".MainActivity">
+
+
+
+    <EditText
+        android:id="@+id/edtHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="身高 (cm)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edtWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtHeight"
+        android:layout_marginTop="20dp"
+        android:hint="體重 (kg)"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/userActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtWeight"
+        android:layout_marginTop="20dp"
+        android:text="每日活動量"
+        android:textSize="16dp" />
+
+    <RadioGroup
+        android:id="@+id/rmRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userActivity"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/easy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:textSize="16dp"
+            android:text="久坐" />
+
+        <RadioButton
+            android:id="@+id/middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/easy"
+            android:checked="false"
+            android:textSize="16dp"
+            android:text="久站" />
+
+        <RadioButton
+            android:id="@+id/hard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/middle"
+            android:checked="false"
+            android:textSize="16dp"
+            android:text="重勞動" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rmRadioGroup"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="每日所需熱量" />
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnCalculate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="等待中..."
+        android:textSize="20dp" />
+
+
+</RelativeLayout>
