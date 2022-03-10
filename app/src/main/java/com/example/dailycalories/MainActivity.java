@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private TextView result;
     private double height, weight, bmi;
-    private int dailyExercise;
+    private int dailyExercise, bestCalories;
     private String posture;
 
 
@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
             try {
                 calBMI();
                 result.setText("您的BMI: " + nf.format(bmi) + " 屬於 " + posture +
-                        "\n每日熱量所需: " + dailyExercise * weight + " 大卡" +
-                        "\n建議每日熱量: " + (dailyExercise - 5) * weight + " 大卡");
+                        "\n體重維持所需: " + dailyExercise * weight + " 大卡" +
+                        "\n建議每日熱量: " + bestCalories  * weight + " 大卡");
             } catch (Exception e) {
                 Toast.makeText(MainActivity.this, "需要輸入身高體重唷!", Toast.LENGTH_SHORT).show();
                 result.setText("請先輸入身高與體重\n確認每日活動量喔!");
@@ -74,10 +74,13 @@ public class MainActivity extends AppCompatActivity {
         bmi = weight / (height * height);
         if (bmi < 18.5) {
             posture = "過輕";
+            bestCalories = dailyExercise + 5;
         } else if (bmi >= 18.5 && bmi < 24) {
             posture = "正常";
+            bestCalories = dailyExercise;
         } else if (bmi >= 24) {
             posture = "過重";
+            bestCalories = dailyExercise - 5;
         }
     }
 
